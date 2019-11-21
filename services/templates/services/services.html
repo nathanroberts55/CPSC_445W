@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="{% url 'main-home' %}">
+            <img src="{% static 'images/nr_logo.png' %}" width="35" height="35" class="d-inline-block align-top" alt="">
+            <span class="nav-brand-size">NR MEDIA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'main-home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'media-home' %}">Media</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-size" href="{% url 'services-home' %}">Services <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'contact-home' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <h1 class="text-center title-one">SERVICES</h1>
+
+    <!--First TWO SERVICES-->
+    <div class="services-wrapping">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_3.png' %}" alt="services">
+                <h2>Video Production</h2>
+                <p class="services-captions">Complete support from pre-production, shooting, to post production, Nate
+                    can do it all. His creative vision, business knowledge, and technical skills, Nate is able to
+                    bring life to your ideas.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_1.png' %}"
+                     alt="services">
+                <h2>Photography</h2>
+                <p class="services-captions">
+                    From portraits, business headshots, events, and product photography. Capturing
+                    the story & emotion of the moment is my goal. Mo matter the project, Nate is able to meet
+                    all of your photo needs.
+                </p>
+            </div>
+        </div>
+        <!--SECOND TWO SERVICES-->
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_2.png' %}"
+                     alt="services">
+                <h2>Social Media Management</h2>
+                <p class="services-captions">
+                    Years of experience creating captivating and interactive social media
+                    content to connect and help users discover your brand. Nate can provide the tools and insight to
+                    grow
+                    your brands socials media presence. </p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_4.png' %}"
+                     alt="services">
+                <h2>Graphic Design</h2>
+                <p class="services-captions">
+                    Need a logo, event poster, website, or social media branding? Nate ability to create imagery that to
+                    embody
+                    your personality, goals, and values. Give your organization or brand the public face it needs
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+        <h2>Want to turn you vision into Reality?</h2>
+        <a href="{% url 'contact-home' %}">
+            <button class="abolition btn-xl btn-outline-dark">LET'S GET STARTED</button>
+        </a>
+    </footer>
+{% endblock content %}

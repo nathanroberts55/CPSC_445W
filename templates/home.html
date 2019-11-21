@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% include 'partials/_background_image.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="{% url 'main-home' %}">
+            <img src="{% static 'images/nr_logo.png' %}" width="35" height="35" class="d-inline-block align-top" alt="">
+            <span class="nav-brand-size">NR MEDIA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-size" href="{% url 'main-home' %}">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'media-home' %}">Media</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'services-home' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-size" href="{% url 'contact-home' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Homepage Image w/ Contact Button-->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 class="hero-text-logo">WELCOME TO NR MEDIA</h1>
+            <a href="{% url 'contact-home' %}">
+                <button class="abolition btn btn-default btn-lg btn-block btn-outline-light">CONTACT ME</button>
+            </a>
+        </div>
+    </div>
+
+    <h1 class="text-center title-one">Who is Nate Roberts?</h1>
+
+    <p class="justify-content-center bio-paragraph">I am a photographer and videographer from Fairfax, Virginia. I
+        started
+        taking pictures
+        and making videos when I was
+        7/8 Years old. From there I always had a passion for creating through the lens of the a camera. I went on to
+        create
+        basketball highlight videos using cheap Walmart cameras and old cameras that people did not want anymore. Then,
+        I
+        progressed to an iPod then iPhone which I used to start a Youtube channel. Now I work using a Canon Rebel T6i
+        and
+        work with small local business and organizations. The goal of NR Productions to provide maximum quality,
+        storytelling, and affordable content to anyone looking to boost their presence in today's digital market. But my
+        personal goal is to continue to learn and develop my skills to further my passion. I appreciate you visiting the
+        site and hope that you enjoy what you see!</p>
+
+    <h2 class="text-center title-two">Clients & Collaborations</h2>
+
+    <div class="row justify-content-center">
+        <img class="collab-images" src="{% static 'images/clients_1.png' %}">
+        <img class="collab-images" src="{% static 'images/clients_2.png' %}">
+        <img class="collab-images" src="{% static 'images/clients_3.png' %}">
+    </div>
+{% endblock content %}

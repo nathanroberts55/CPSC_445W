@@ -1,0 +1,11 @@
+{% load static %}
+{% load i18n %}
+{% autoescape off %}
+    <strong><span style="color: blue;">New Project Proposal from Website: {{ subject }}</span></strong>
+    <br>
+
+    <p>From: {{ first_name }} {{ last_name }} at {{ email }}</p>
+    <p>Location: {{ city }} {{ state }} , {{ zip_code }}</p>
+    <p>{{ message }}</p>
+
+{% endautoescape %}
