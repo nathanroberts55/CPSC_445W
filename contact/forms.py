@@ -1,10 +1,11 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
-from .models import Client
-from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.utils.translation import ugettext_lazy as _
+
 from nr_media import settings
+from .models import Client
 
 
 class ClientContactForm(forms.ModelForm):
@@ -23,6 +24,21 @@ class ClientContactForm(forms.ModelForm):
         if len(self.cleaned_data['zip_code']) > 5:
             raise ValidationError(_('Zip code cannot be longer than 5 digits. Please re-enter the value.'))
         return self.cleaned_data['zip_code']
+
+    def clean_first_name(self):
+        if self.cleaned_data['first_name'].isdigit():
+            raise ValidationError(_('First Name should ONLY contain characters'))
+        return self.cleaned_data['first_name']
+
+    def clean_last_name(self):
+        if self.cleaned_data['last_name'].isdigit():
+            raise ValidationError(_('Last Name should ONLY contain characters'))
+        return self.cleaned_data['last_name']
+
+    def clean_city(self):
+        if self.cleaned_data['city'].isdigit():
+            raise ValidationError(_('City should ONLY contain characters'))
+        return self.cleaned_data['city']
 
     def save(self, commit=True, **kwargs):
         client = super().save(commit=False)

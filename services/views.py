@@ -25,7 +25,7 @@ class ServicesView(TemplateView):
         # context = {'form': form, 'first_image': Photo.objects.first(), 'images': Photo.objects.all()[1:12]}
         context = {}
 
-        form = ReviewForm(request.POST)
+        form = ReviewForm()
 
         context['form'] = form
         return render(request, self.template_name, context)

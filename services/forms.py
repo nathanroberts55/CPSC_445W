@@ -1,10 +1,22 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
+
+    def clean_first_name(self):
+        if self.cleaned_data['first_name'].isdigit():
+            raise ValidationError(_('First Name should ONLY contain characters'))
+        return self.cleaned_data['first_name']
+
+    def clean_last_name(self):
+        if self.cleaned_data['last_name'].isdigit():
+            raise ValidationError(_('Last Name should ONLY contain characters'))
+        return self.cleaned_data['last_name']
+
     def save(self, commit=True, **kwargs):
         review = super().save(commit=False)
         if commit:

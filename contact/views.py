@@ -24,5 +24,5 @@ class ContactView(TemplateView):
             messages.success(request, 'Thanks for signing up!')
             return redirect(reverse('contact-home'))
 
-        args = {'form': form}
-        return render(request, self.template_name, args)
+        context = {'form': form, 'first_image': Photo.objects.first(), 'images': Photo.objects.all()[1:12]}
+        return render(request, self.template_name, context)

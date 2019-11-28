@@ -50,7 +50,7 @@
                 <h2>Photography</h2>
                 <p class="services-captions">
                     From portraits, business headshots, events, and product photography. Capturing
-                    the story & emotion of the moment is my goal. Mo matter the project, Nate is able to meet
+                    the story & emotion of the moment is his goal. No matter the project, Nate is able to meet
                     all of your photo needs.
                 </p>
             </div>
@@ -64,7 +64,7 @@
                 <p class="services-captions">
                     Years of experience creating captivating and interactive social media
                     content to connect and help users discover your brand. Nate can provide the tools and insight to
-                    grow
+                    grow.
                     your brands socials media presence. </p>
             </div>
             <div class="col-lg-6">
@@ -72,9 +72,9 @@
                      alt="services">
                 <h2>Graphic Design</h2>
                 <p class="services-captions">
-                    Need a logo, event poster, website, or social media branding? Nate ability to create imagery that to
-                    embody
-                    your personality, goals, and values. Give your organization or brand the public face it needs
+                    Need a logo, event poster, website, or social media branding? Nate ability to create imagery that
+                    embodies
+                    your personality, goals, and values. Give your organization or brand the public face it needs.
                 </p>
             </div>
         </div>
@@ -84,17 +84,27 @@
     <h2 class="text-center"> Leave a Message about your experience with NR Media</h2>
 
     <div class="col-lg-6 contact-wrapping">
+        {#    Success Messages#}
         {% if messages %}
             <div class="container" style="text-align: center">
                 {% for message in messages %}
-                    {{ message }}
+                    <h3>{{ message }}</h3>
                 {% endfor %}
             </div>
-            {#  Swal.fire({#}
-            {#            'Thank You',#}
-            {#            'Review Successfully Submitted',#}
-            {#            'success'#}
-            {#            })#}
+        {% endif %}
+
+        {#    Error Messages#}
+        {% if form.errors %}
+            <div class="alert alert-error">
+                <p class="mandatory" id="error_message">The operation could not be performed because the
+                    following
+                    error(s) occurred. Please resubmit the form after making the following changes:</p>
+                <ul>
+                    {% for field,error in form.errors.items %}
+                        <p class="text-center">{{ error|striptags }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
         <form method="post">
             {% csrf_token %}
@@ -117,7 +127,17 @@
                 {{ form.review }}
             </div>
             {# Submission Button#}
-            <button class="abolition btn btn-default btn-lg btn-outline-dark" type="submit">SUBMIT</button>
+            <button id="submission" class="abolition btn btn-default btn-lg btn-outline-dark" type="submit">SUBMIT
+            </button>
+            {#            <script>#}
+            {#                $('submission').on('click', function() {#}
+            {#                    Swal.fire({#}
+            {#                        title: 'Thank You',#}
+            {#                        text: 'Review Successfully Submitted',#}
+            {#                        type: 'success'#}
+            {#                    })#}
+            {#                })#}
+            {#            </script>#}
         </form>
 
     </div>
