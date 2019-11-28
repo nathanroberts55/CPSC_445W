@@ -1,4 +1,4 @@
-# NRMediaSite
+# NR Media Site
 <h2>Project Background</h2>
 	This project is essential because many professional creatives believe that the first step to having a successful 
 	media company has a website. Also, many potential clients always ask to see previous work. Despite having accounts 
@@ -23,3 +23,4 @@
 	clients. Then a services page, where clients can see the different photo and video services I provide with 
 	descriptions — finally, a contact page where potential clients can leave basic information and a description of 
 	their project
+	

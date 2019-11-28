@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites'
+    # 'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +124,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/gallery')
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'contact.nrproductions@gmail.com'
 EMAIL_HOST_PASSWORD = 'Fair55fax!!'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.Email.Backend'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

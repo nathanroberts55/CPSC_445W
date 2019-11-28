@@ -36,7 +36,8 @@
     <div class="services-wrapping">
         <div class="row">
             <div class="col-lg-6">
-                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_3.png' %}" alt="services">
+                <img class="img-thumbnail" height="128px" width="128px" src="{% static 'services_3.png' %}"
+                     alt="services">
                 <h2>Video Production</h2>
                 <p class="services-captions">Complete support from pre-production, shooting, to post production, Nate
                     can do it all. His creative vision, business knowledge, and technical skills, Nate is able to
@@ -78,6 +79,50 @@
             </div>
         </div>
     </div>
+
+    <h2 class="text-center title-contact">Want to Leave a Review?</h2>
+    <h2 class="text-center"> Leave a Message about your experience with NR Media</h2>
+
+    <div class="col-lg-6 contact-wrapping">
+        {% if messages %}
+            <div class="container" style="text-align: center">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {#  Swal.fire({#}
+            {#            'Thank You',#}
+            {#            'Review Successfully Submitted',#}
+            {#            'success'#}
+            {#            })#}
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {# First and Last Name Fields#}
+            <div class="form-group">
+                <label for="FName">Name</label>
+                <div class="row">
+                    <div class="col-lg-6">
+                        {{ form.first_name }}
+                    </div>
+                    <div class="col-lg-6">
+                        {{ form.last_name }}
+                    </div>
+                </div>
+            </div>
+
+            {# Review Message Content#}
+            <div class="form-group">
+                <label for="message">Review</label>
+                {{ form.review }}
+            </div>
+            {# Submission Button#}
+            <button class="abolition btn btn-default btn-lg btn-outline-dark" type="submit">SUBMIT</button>
+        </form>
+
+    </div>
+
+    {#    Footer#}
     <footer class="text-center">
         <h2>Want to turn you vision into Reality?</h2>
         <a href="{% url 'contact-home' %}">

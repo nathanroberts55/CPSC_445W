@@ -1,27 +1,15 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
-from contact.forms import ClientContactForm
-from django.urls import reverse
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic import TemplateView
 
+from contact.forms import ClientContactForm
 # Create your views here.
 from media.models import Photo
 
 
 class ContactView(TemplateView):
     template_name = 'contact/contact.html'
-
-    # def contact(request):
-    #     context = {}
-    #     form = ClientContact()
-    #     context['form'] = form
-    #     return render(request, template_name, context)
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)  # generate default context data
-    #     context['images'] = Photo.objects.all()[:12]
-    #     print(context['images'])
-    #     return context
 
     def get(self, request, **kwargs):
         form = ClientContactForm()

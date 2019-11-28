@@ -36,54 +36,37 @@
 
         <div class="row justify-content-center">
             {% for photo in first_three %}
-                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}" alt="responsive"></a>
+                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}"
+                                                          alt="responsive"></a>
             {% endfor %}
         </div>
         <div class="row justify-content-center">
             {% for photo in second_three %}
-                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}" alt="responsive"></a>
+                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}"
+                                                          alt="responsive"></a>
             {% endfor %}
         </div>
         <div class="row justify-content-center">
             {% for photo in third_three %}
-                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}" alt="responsive"></a>
+                <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}"
+                                                          alt="responsive"></a>
             {% endfor %}
         </div>
         <div class="row justify-content-center">
             {% if fourth_three|length == 3 %}
                 {% for photo in fourth_three %}
-                    <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image" src="{{ photo.image.url }}" alt="responsive"></a>
+                    <a href="{{ photo.instagram_link }}"><img class="img-fluid gallery-image"
+                                                              src="{{ photo.image.url }}" alt="responsive"></a>
                 {% endfor %}
             {% endif %}
         </div>
     </div>
 
-    {#    <div class="col gallery">#}
-    {#        <div class="row justify-content-center">#}
-    {#            <a href="{{ gal_img.instagram_link }}"><img class="img-fluid gallery-image" src="{{ gal_imgs.image }}"#}
-    {#                                                        alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test2.jpg" alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test3.jpg" alt="responsive"></a>#}
-    {#        </div>#}
-    {##}
-    {#        <div class="row justify-content-center">#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test4.jpg" alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test5.jpg" alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test6.jpg" alt="responsive"></a>#}
-    {#        </div>#}
-    {##}
-    {#        <div class="row justify-content-center">#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test7.jpg" alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test8.jpg" alt="responsive"></a>#}
-    {#            <a href="#"><img class="img-fluid gallery-image" src="images/gallery_test9.jpg" alt="responsive"></a>#}
-    {#        </div>#}
-    {#    </div>#}
-
     <h2 class="text-center title-two">VIDEOS</h2>
 
     <div class="gallery-video">
         <div class="justify-content-center embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/C1EDhRibjiQ"
+            <iframe class="embed-responsive-item" src="{{ demo_reel.video_link }}"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>

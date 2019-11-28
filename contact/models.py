@@ -1,9 +1,14 @@
+from django.contrib.auth.models import User
 from django.db import models
+
 from .constants import *
+
+admin = User.objects.first()
 
 
 # Create your models here.
 class Client(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, editable=False)
     first_name = models.CharField(max_length=ContactConstants.CHAR_MAX_LENGTH)
     last_name = models.CharField(max_length=ContactConstants.CHAR_MAX_LENGTH)
     email = models.EmailField()

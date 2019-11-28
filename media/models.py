@@ -1,9 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
+admin = User.objects.first()
 
 
 # Create your models here.
 class Photo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, editable=False)
     description = models.CharField(_('Photo Description'), max_length=45, default="")
     instagram_link = models.URLField(_('Instagram Link'), max_length=300, default="", blank=True)
     date_added = models.DateTimeField(auto_now=True)
@@ -19,20 +23,15 @@ class Photo(models.Model):
 
 
 class Video(models.Model):
-    # description = models.CharField(_('Video Description'), max_length=45, default="")
-    video_src = models.CharField(max_length=300)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, editable=False)
+    description = models.CharField(_('Video Description'), max_length=45, default="")
+    video_link = models.URLField(_('Video Link'), max_length=300, default="", blank=False)
     date_added = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.description
 
     class Meta:
         verbose_name = _('Video')
         verbose_name_plural = _('Videos')
         ordering = ['-date_added']
-
-
-class Media(models.Model):
-    photo_FK = models.ForeignKey(Photo, on_delete=models.CASCADE)
-    video_FK = models.ForeignKey(Video, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = _('Media')
-        verbose_name_plural = _('Media')
